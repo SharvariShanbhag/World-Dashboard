@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import '.config/db.js';
+import './config/db.js';
 //.js is important
-import dashboardRoutes from './routes/dashboardRoute';
+import dashboardRoutes from './routes/dashboardRoute.js';
 
 dotenv.config();
 

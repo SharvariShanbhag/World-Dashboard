@@ -4,14 +4,14 @@ import { Sequelize } from "sequelize";
 
 dotenv.config();
 
-export const sequalize = new sequalize(
+export const sequelize = new Sequelize(
     process.env.DB_NAME,
     //Specifies database schema name from environment variables
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
         host:process.env.DB_HOST,
-        dialact : "mysql",
+        dialect : "mysql",
         logging: false,
         dialactOptions:{}
         }
@@ -19,10 +19,10 @@ export const sequalize = new sequalize(
 
 (async()=>{
     try{
-        await sequalize.authenticate();
+        await sequelize.authenticate();
         console.log("connection to database successfully")
     }catch(error){
         console.log("connection error");
         process.exit(1);
     }
-})
+})()

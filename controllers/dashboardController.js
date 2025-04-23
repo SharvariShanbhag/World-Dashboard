@@ -3,7 +3,7 @@ import { sequelize } from "../config/db.js";
 export const getTotalpopulation =async(req,res) => {
     try{
         const q1 =`select sum(Population) as totalpopulation from country;`
-        const totalPopulation = await sequalize.query(q1);
+        const totalPopulation = await sequelize.query(q1);
         console.log({totalPopulation:totalPopulation[0], success:true})
     }catch(error){
         res.status(500).send({error})
@@ -23,7 +23,7 @@ export const getTop10PopulatedCountries =async (req,res)=>{
 export const getTop10LeastPopulatedCountries =async (req,res)=>{
     try{
         const q3 = `select Name,Population from country order by asc limit 10;`
-        const top10LeastPopulatedCountries = await sequalize.query(q3);
+        const top10LeastPopulatedCountries = await sequelize.query(q3);
         console.log({top10LeastPopulatedCountries:top10LeastPopulatedCountries,success:true})
 }catch(error){
     res.status(500).send({error:error})
